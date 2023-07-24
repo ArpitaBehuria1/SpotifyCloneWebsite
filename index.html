@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <!-- Logo -->
+ <div class="sidebar">
+    <div class="logo">
+        <a href="#">
+            <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo">
+        </a>
+    </div>
+
+    <!-- Nav Area -->
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                    <span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="./search.html">
+                    <span class="fa fa-search"></span>
+                    <span>Search</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-book"></span>
+                    <span>Your Library</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-plus-square"></span>
+                    <span><button >Playlist</button>
+                    </span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="#">
+                    <span class="fa fas fa-heart"></span>
+                    <span>Liked Songs</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="policies">
+        <ul>
+            <li>
+                <a href="#">Cookies</a>
+            </li>
+            <li>
+                <a href="#">Privacy</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Top Bar -->
+<div class="container" id="playlistsContainer">
+    <div class="topbar">
+        <div class="prev-next-btns">    <!--Left/Right Buttons-->
+            <button type="button" class="fa fas fa-chevron-left"></button>
+            <button type="button" class="fa fas fa-chevron-right"></button>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="premium.html">Premium</a>
+                </li>
+                <li>
+                    <a href="#">Support</a>
+                </li>
+                <li>
+                    <a href="#">Download</a>
+                </li>
+                <li class="divider">|
+                </li>
+                <li>
+                    <a href="#"></a>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+            </ul>
+            <button type="button"><a href="login.html">Log In</a></button>
+            
+        </div>
+    </div>
+
+    <!-- Playlist Section -->
+
+
+
+    <!-- Trial Banner -->
+    <div class="trial">
+        <div class="txt">
+            <h6>Spotify Trial</h6>
+            <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+        </div>
+        <div class="button">
+            <button type="button"><a href="signup.html">Sign Up</a></button>
+        </div>
+    </div>
+</div>
+<!-- Music Player Bar -->
+<div class="music-player-bar">
+    <div class="music-info">
+        <div class="music-thumb">
+            <img id="song-thumbnail" src="" alt="Song Thumbnail">
+        </div>
+        <div class="music-details">
+            <p id="song-title">Song Title</p>
+            <p id="song-artist">Artist Name</p>
+        </div>
+    </div>
+    <div class="music-controls">
+        <button id="prev-btn"><i class="fa fa-step-backward"></i></button>
+        <button id="play-btn"><i class="fa fa-play"></i></button>
+        <button id="next-btn"><i class="fa fa-step-forward"></i></button>
+    </div>
+    <div class="music-progress-container">
+        <div class="current-time" id="current-time">0:00</div>
+        <div class="music-progress-bar">
+            <div class="music-progress" id="music-progress"></div>
+        </div>
+        <div class="total-duration" id="total-duration">0:00</div>
+    </div>
+</div>
+
+
+
+<script src="https://kit.fontawesome.com/23cecef777.js"></script>
+<script src="./main.js"></script>
+<a href="./login.html"></a>
+<script>
+// Your current code
+let currentSongIndex = 0;
+
+// Get the music controls elements
+const prevBtn = document.getElementById('prev-btn');
+const playBtn = document.getElementById('play-btn');
+const nextBtn = document.getElementById('next-btn');
+
+// Get the music progress elements
+const currentTimeElement = document.getElementById('current-time');
+const durationElement = document.getElementById('total-duration');
+const progressElement = document.getElementById('music-progress');
+
+// Get the song details elements
+const songThumbnailElement = document.getElementById('song-thumbnail');
+const songTitleElement = document.getElementById('song-title');
+const songArtistElement = document.getElementById('song-artist');
+
+// Add event listeners to the music controls buttons
+prevBtn.addEventListener('click', prevSong);
+playBtn.addEventListener('click', togglePlayPause);
+nextBtn.addEventListener('click', nextSong);
+
+// Add an event listener to the audio element to update the progress bar
+audio.addEventListener('timeupdate', updateProgress);
+
+// Function to play a song
+function playSong(song) {
+    audio.src = song.url;
+    audio.play();
+    songThumbnailElement.src = song.image;
+    songTitleElement.textContent = song.title;
+    songArtistElement.textContent = song.artist;
+    playBtn.innerHTML = '<i class="fa fa-pause"></i>'; // Update play button to show pause icon
+}
+
+function setSong(song) {
+    audio.src = song.url;
+    songThumbnailElement.src = song.image;
+    songTitleElement.textContent = song.title;
+    songArtistElement.textContent = song.artist;
+}
+
+function togglePlayPause() {
+    if (audio.paused) {
+        audio.play();
+        playBtn.innerHTML = '<i class="fa fa-pause"></i>';
+    } else {
+        audio.pause();
+        playBtn.innerHTML = '<i class="fa fa-play"></i>';
+    }
+}
+
+function prevSong() {
+    currentSongIndex--;
+    if (currentSongIndex < 0) {
+        currentSongIndex = playlists[0].songs.length - 1;
+    }
+    playSong(playlists[0].songs[currentSongIndex]);
+}
+
+function nextSong() {
+    currentSongIndex++;
+    if (currentSongIndex > playlists[0].songs.length - 1) {
+        currentSongIndex = 0;
+    }
+    playSong(playlists[0].songs[currentSongIndex]);
+}
+
+function updateProgress() {
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
+    progressElement.style.width = `${progressPercent}%`;
+    currentTimeElement.textContent = formatTime(audio.currentTime);
+    durationElement.textContent = formatTime(audio.duration);
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
+// Function to play a song from the thumbnail
+function playSongFromThumbnail(playlistIndex, songIndex) {
+    currentPlaylistIndex = playlistIndex;
+    currentSongIndex = songIndex;
+    playSong(playlists[currentPlaylistIndex].songs[currentSongIndex]);
+}
+
+// Start with the first song
+setSong(playlists[0].songs[currentSongIndex]);
+
+</script>
+<script src="search.html"></script>
+</body>
+</html>

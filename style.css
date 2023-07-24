@@ -1,0 +1,367 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+
+/* logo styling */
+.sidebar .logo img {
+  width: 130px;
+}
+
+/* sidebar list styling */
+.sidebar .nav ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.sidebar .nav ul li {
+  padding: 10px 0px;
+}
+.sidebar .nav ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+.sidebar .policies ul {
+  list-style: none;
+}
+.sidebar .policies ul li {
+  padding-bottom: 10px;
+}
+.sidebar .policies ul li a {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
+}
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+/* sidebar list styling on hover, active, focus */
+.sidebar .nav ul li a:hover,
+.sidebar .nav ul li a:active,
+.sidebar .nav ul li a:focus {
+  color: #ffffff;
+}
+
+/* sidebar list icon styling on hover, active, focus */
+.sidebar .nav ul li a:hover .fa,
+.sidebar .nav ul li a:active .fa,
+.sidebar .nav ul li a:focus .fa {
+  color: #b3b3b3;
+}
+.sidebar .nav ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .nav ul li a:hover .fa:hover,
+.sidebar .nav ul li a:hover .fa:active,
+.sidebar .nav ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+
+
+/* Conatiner Styling */
+.container {
+  margin-left: 245px;
+  margin-bottom: 100px;
+}
+
+/* top-bar Styling */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  padding: 14px 30px;
+}
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+}
+.topbar .navbar ul {
+  list-style: none;
+}
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 0px 8px;
+  width: 70px;
+}
+.topbar .navbar ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #ffffff;
+  font-size: 15px;
+}
+.topbar .navbar ul li.divider {
+  color: #ffffff;
+  font-size: 26px;
+  margin: 0px 20px;
+  width: auto;
+}
+
+/* next-prev-btn styling */
+.topbar .prev-next-btns button {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  font-size: 18px;
+  border: 0px;
+  background-color: #090909;
+  margin-right: 10px;
+}
+
+.topbar .navbar button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #f2f2f2;
+}
+
+/* playlists styling */
+.playlists {
+  padding: 20px 40px;
+}
+.playlists h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.playlists .list {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* Styling each playlist line */
+.playlists .list .item {
+  min-width: 140px;
+  width: 160px;
+  padding: 15px;
+  background-color: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.playlists .list .item:hover {
+  background-color: #252525;
+}
+.playlists .list .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* styling play button on hover */
+.playlists .list .item .play {
+  position: relative;
+}
+.playlists .list .item .play .fa {
+  position: absolute;
+  right: 10px;
+  top: -60px;
+  padding: 18px;
+  background-color: #1db954;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+.playlists .list .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.playlists .list .item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.playlists .list .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.playlists hr {
+  margin: 70px 0px 0px;
+  border-color: #636363;
+}
+
+.trial {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to right, #ae2896, #509bf5);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.trial h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.trial p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.trial button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.music-player-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #282828;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.music-info, .music-controls, .music-progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.music-thumb img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.music-details {
+  margin-left: 10px;
+}
+
+.music-details p {
+  margin: 0;
+}
+
+.music-controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.music-progress-container {
+  flex-grow: 2;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.music-progress-bar {
+  flex-grow: 2;
+  height: 4px;
+  background: #535353;
+  margin: 0 10px;
+  position: relative;
+}
+
+.music-progress {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background: #1db954;
+}
+/* Search Field */
+.search-field {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.search-field input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background: #282828;
+  color: #b3b3b3;
+  font-size: 16px;
+}
+
+.search-field input::placeholder {
+  color: #b3b3b3;
+}
+
+.search-field input:focus {
+  outline: none;
+}
+/* Recent Playlists */
+.recent-playlists {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.recent-playlists h2 {
+  margin-bottom: 20px;
+  color: #b3b3b3;
+  font-size: 24px;
+}
+
+.recent-playlists .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
